@@ -19,6 +19,13 @@ jobs:
       - name: Validar manifests e sincronia do index
         run: node scripts/build-index.mjs --check
 
+      # O registry tem de validar com o MESMO schema do instalador: aceitar aqui o que o
+      # `mgr add` recusaria so apareceria como falha na maquina do usuario. A checagem fica
+      # INATIVA enquanto src/plugin.js nao estiver na main do mgr-method e se ativa sozinha
+      # quando chegar la.
+      - name: Conferir sincronia do schema com o mgr-method
+        run: node scripts/check-schema-sync.mjs
+
       # O index so serve ao `mgr add` se as URLs raw apontarem para arquivos que existem
       # com o sha256 anunciado. Em PR de fork o raw ainda nao tem o commit; por isso a
       # verificacao de URL roda apenas no push para main, onde o conteudo ja esta publicado.

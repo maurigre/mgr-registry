@@ -29,6 +29,7 @@ index.json            GENERATED from the manifests — never edit by hand
 scripts/
   build-index.mjs     regenerates index.json (--check fails when out of sync)
   verify-published.mjs downloads every published file and re-checks the checksums
+  check-schema-sync.mjs fails when the vendored schema drifts from mgr-method
   plugin-schema.mjs   vendored copy of mgr-method's src/plugin.js (see below)
 ```
 
@@ -68,11 +69,18 @@ It is a verbatim copy of `src/plugin.js` from the mgr-method repository, so this
 validates manifests with exactly the same rules the installer applies. Accepting here what
 `mgr add` would reject would only surface as a failed install on the user's machine.
 
+The CI runs `scripts/check-schema-sync.mjs`, which compares this copy against
+`src/plugin.js` on mgr-method's `main` and fails on any divergence, pointing at the first
+differing line. While that file has not reached `main` yet, the check reports itself as
+inactive and passes — it starts enforcing on its own the moment the file lands there, with
+nothing to switch on.
+
 To sync it after a schema change upstream:
 
 ```bash
 cp <mgr-method>/src/plugin.js scripts/plugin-schema.mjs
 # then restore the header block at the top of the file
+node scripts/check-schema-sync.mjs
 node scripts/build-index.mjs --check
 ```
 
