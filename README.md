@@ -69,11 +69,12 @@ It is a verbatim copy of `src/plugin.js` from the mgr-method repository, so this
 validates manifests with exactly the same rules the installer applies. Accepting here what
 `mgr add` would reject would only surface as a failed install on the user's machine.
 
-The CI runs `scripts/check-schema-sync.mjs`, which compares this copy against
-`src/plugin.js` on mgr-method's `main` and fails on any divergence, pointing at the first
-differing line. While that file has not reached `main` yet, the check reports itself as
-inactive and passes — it starts enforcing on its own the moment the file lands there, with
-nothing to switch on.
+The CI runs `scripts/check-schema-sync.mjs`, which compares this copy against mgr-method's
+`src/plugin.js` and fails on any divergence, pointing at the first differing line. It looks
+for the file on `main` first and falls back to `release/mgr-evolution`, because the MGR
+evolution integrates on that release branch and only reaches `main` once all its phases are
+done. While the file exists on neither ref, the check reports itself as inactive and passes —
+it starts enforcing on its own the moment the file lands on either, with nothing to switch on.
 
 To sync it after a schema change upstream:
 
