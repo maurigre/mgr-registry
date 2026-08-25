@@ -1,0 +1,27 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "lts/*"
+
+      # Valida o schema de cada manifest + as regras de publicacao deste registry
+      # (permissions obrigatorio, description com gatilho explicito) E falha se o index.json
+      # divergir dos manifests: o index e GERADO, nunca editado a mao (ADR-0005).
+      - name: Validar manifests e sincronia do index
+        run: node scripts/build-index.mjs --check
+
+      # O index so serve ao `mgr add` se as URLs raw apontarem para arquivos que existem
+      # com o sha256 anunciado. Em PR de fork o raw ainda nao tem o commit; por isso a
+      # verificacao de URL roda apenas no push para main, onde o conteudo ja esta publicado.
+      - name: Conferir as URLs raw publicadas
+        if: github.event_name == 'push'
+        run: node scripts/verify-published.mjs

@@ -1,0 +1,16 @@
+{
+  "name": "@mgr/diagnosing-bugs",
+  "version": "1.0.0",
+  "author": "Mauri Reis",
+  "description": "Discipline for diagnosing hard bugs and performance regressions — requires a reproduction loop that goes RED on the bug BEFORE any hypothesis (signal before theory). Finds the root cause and stops; the non-trivial fix is handed to spec-create. Use when the user asks to diagnose or debug something, or reports something broken, throwing, failing or slow.",
+  "category": "workflow",
+  "compatibility": {
+    "mgr": ">=0.6.0"
+  },
+  "extends": null,
+  "permissions": [
+    "read-files",
+    "write-files",
+    "run-shell"
+  ]
+}

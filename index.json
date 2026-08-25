@@ -1,0 +1,47 @@
+{
+  "indexVersion": 1,
+  "registry": "mgr",
+  "generatedAt": "2026-08-25T18:56:41.646Z",
+  "categories": {
+    "language": [
+      {
+        "name": "@mgr/junit-clean",
+        "version": "1.0.0",
+        "description": "Standardizes Java unit tests with JUnit 5 following 13 strict rules of quality, performance and clarity (no inheritance, should+camelCase naming, no comments, ParameterizedTest, self-contained scope, AAA, boundary+MC/DC depth, Sonar-safe assertThatThrownBy). Operates in CREATION mode (generate new tests), REFACTOR mode (clean existing tests) or MIXED. Use when the user asks to create, generate, standardize, clean or refactor Java unit tests, convert to parameterized, or remove DisplayName and comments. Also invoked by spec-create on test tasks of Java projects.",
+        "checksum": "sha256-4c304650b756dbe2f47cc874f13976ee37fb10d65e623229392415100cbf5566",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "url": "https://raw.githubusercontent.com/maurigre/mgr-registry/main/skills/junit-clean/SKILL.md",
+            "sha256": "672cd6bb1fabbb398a00584ead35ab9ac295b3e04adf658b183d4d549f6632ce"
+          },
+          {
+            "path": "mgr-manifest.json",
+            "url": "https://raw.githubusercontent.com/maurigre/mgr-registry/main/skills/junit-clean/mgr-manifest.json",
+            "sha256": "971d2366cfefb2c6affa09089784b9f7d39eb622edd2a552767e2b39401e44c4"
+          }
+        ]
+      }
+    ],
+    "workflow": [
+      {
+        "name": "@mgr/diagnosing-bugs",
+        "version": "1.0.0",
+        "description": "Discipline for diagnosing hard bugs and performance regressions — requires a reproduction loop that goes RED on the bug BEFORE any hypothesis (signal before theory). Finds the root cause and stops; the non-trivial fix is handed to spec-create. Use when the user asks to diagnose or debug something, or reports something broken, throwing, failing or slow.",
+        "checksum": "sha256-06b4725d2e99b0a02b628381f1360afd111053a02f2815af5a2c3247678623fe",
+        "files": [
+          {
+            "path": "SKILL.md",
+            "url": "https://raw.githubusercontent.com/maurigre/mgr-registry/main/skills/diagnosing-bugs/SKILL.md",
+            "sha256": "dc73048e2504cd9b612a0bc537f467a3a6e4b96ba47f4d54de01b91d8da79f8d"
+          },
+          {
+            "path": "mgr-manifest.json",
+            "url": "https://raw.githubusercontent.com/maurigre/mgr-registry/main/skills/diagnosing-bugs/mgr-manifest.json",
+            "sha256": "0c8bccf63ab87f611f2b440f5919aedbd05a5a6081530d3ad9e04d8a4c23dae2"
+          }
+        ]
+      }
+    ]
+  }
+}
