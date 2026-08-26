@@ -1,14 +1,17 @@
 {
   "indexVersion": 1,
   "registry": "mgr",
-  "generatedAt": "2026-08-25T18:56:41.646Z",
+  "generatedAt": "2026-08-26T04:01:19.398Z",
   "categories": {
     "language": [
       {
         "name": "@mgr/junit-clean",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "description": "Standardizes Java unit tests with JUnit 5 following 13 strict rules of quality, performance and clarity (no inheritance, should+camelCase naming, no comments, ParameterizedTest, self-contained scope, AAA, boundary+MC/DC depth, Sonar-safe assertThatThrownBy). Operates in CREATION mode (generate new tests), REFACTOR mode (clean existing tests) or MIXED. Use when the user asks to create, generate, standardize, clean or refactor Java unit tests, convert to parameterized, or remove DisplayName and comments. Also invoked by spec-create on test tasks of Java projects.",
-        "checksum": "sha256-4c304650b756dbe2f47cc874f13976ee37fb10d65e623229392415100cbf5566",
+        "ecosystems": [
+          "java"
+        ],
+        "checksum": "sha256-5ef16fdc74b48812046efeb0efd2c475bb73f80159363319ad47a0115692a5c7",
         "files": [
           {
             "path": "SKILL.md",
@@ -18,7 +21,7 @@
           {
             "path": "mgr-manifest.json",
             "url": "https://raw.githubusercontent.com/maurigre/mgr-registry/main/skills/junit-clean/mgr-manifest.json",
-            "sha256": "971d2366cfefb2c6affa09089784b9f7d39eb622edd2a552767e2b39401e44c4"
+            "sha256": "b4d0a2d6507570e395bd6d723b2bca310df2b86ee4118c33db53dfb36cf286d8"
           }
         ]
       }

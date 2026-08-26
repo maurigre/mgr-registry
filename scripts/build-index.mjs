@@ -87,6 +87,9 @@ export function buildEntry(skill, { rawBase = RAW_BASE, skillsDir = SKILLS_DIR }
       name: manifest.name,
       version: manifest.version,
       description: manifest.description,
+      // `ecosystems` viaja para o index porque a deteccao casa contra ELE, sem baixar skill
+      // nenhuma (ADR-0009 do mgr-method). Skill sem o campo simplesmente nao e sugerida.
+      ...(manifest.ecosystems?.length ? { ecosystems: manifest.ecosystems } : {}),
       checksum: aggregateChecksum(files),
       files: files.map((file) => ({
         path: file.path,
